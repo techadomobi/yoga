@@ -27,7 +27,7 @@ export default function Classes() {
       capacity: 20,
       price: '$15',
       benefits: ['Improved flexibility', 'Better posture', 'Stress relief', 'Core strengthening'],
-      image: 'https://images.pexels.com/photos/3820519/pexels-photo-3820519.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/4056529/pexels-photo-4056529.jpeg?auto=compress&cs=tinysrgb&w=1200',
     },
     {
       id: 2,
@@ -40,7 +40,7 @@ export default function Classes() {
       capacity: 25,
       price: '$18',
       benefits: ['Cardiovascular fitness', 'Muscle tone', 'Mental focus', 'Energy boost'],
-      image: 'https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/8436489/pexels-photo-8436489.jpeg?auto=compress&cs=tinysrgb&w=1200',
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ export default function Classes() {
       capacity: 15,
       price: '$20',
       benefits: ['Maximum strength', 'Peak flexibility', 'Mental resilience', 'Athletic performance'],
-      image: 'https://images.pexels.com/photos/3807514/pexels-photo-3807514.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/3822167/pexels-photo-3822167.jpeg?auto=compress&cs=tinysrgb&w=1200',
     },
     {
       id: 4,
@@ -66,7 +66,7 @@ export default function Classes() {
       capacity: 18,
       price: '$15',
       benefits: ['Deep relaxation', 'Joint health', 'Emotional release', 'Mindfulness'],
-      image: 'https://images.pexels.com/photos/3808047/pexels-photo-3808047.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/3757944/pexels-photo-3757944.jpeg?auto=compress&cs=tinysrgb&w=1200',
     },
     {
       id: 5,
@@ -79,7 +79,7 @@ export default function Classes() {
       capacity: 20,
       price: '$20',
       benefits: ['Spiritual awakening', 'Energy activation', 'Chakra balancing', 'Self-awareness'],
-      image: 'https://images.pexels.com/photos/3808051/pexels-photo-3808051.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/866025/pexels-photo-866025.jpeg?auto=compress&cs=tinysrgb&w=1200',
     },
     {
       id: 6,
@@ -92,7 +92,7 @@ export default function Classes() {
       capacity: 12,
       price: '$18',
       benefits: ['Easier delivery', 'Pain relief', 'Bonding with baby', 'Stress reduction'],
-      image: 'https://images.pexels.com/photos/3808013/pexels-photo-3808013.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/3822642/pexels-photo-3822642.jpeg?auto=compress&cs=tinysrgb&w=1200',
     },
   ];
 
@@ -175,6 +175,27 @@ export default function Classes() {
                 </button>
               ))}
             </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+            {[
+              'https://images.pexels.com/photos/432633/pexels-photo-432633.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/917732/pexels-photo-917732.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg?auto=compress&cs=tinysrgb&w=1200',
+            ].map((image, index) => (
+              <div
+                key={image}
+                className="relative h-40 overflow-hidden rounded-2xl border border-white/60 shadow-lg motion-card"
+                style={{
+                  animation: `fadeInUp 0.8s ease-out forwards`,
+                  animationDelay: `${index * 0.12}s`,
+                  opacity: 0,
+                }}
+              >
+                <img src={image} alt="Yoga studio preview" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+              </div>
+            ))}
           </div>
         </div>
       </section>

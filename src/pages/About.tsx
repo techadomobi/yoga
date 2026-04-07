@@ -18,42 +18,42 @@ export default function About() {
       name: 'Sarah Williams',
       role: 'Hatha Yoga Specialist',
       bio: 'With 15 years of experience, Sarah brings gentleness and clarity to every class. She specializes in alignment and breath work.',
-      image: 'https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/4056720/pexels-photo-4056720.jpeg?auto=compress&cs=tinysrgb&w=1200',
       specialties: ['Hatha', 'Alignment', 'Breathing'],
     },
     {
       name: 'Michael Chen',
       role: 'Vinyasa Flow Master',
       bio: 'Michael is a dynamic instructor who loves creating flowing sequences. He brings energy and joy to every practice session.',
-      image: 'https://images.pexels.com/photos/3807519/pexels-photo-3807519.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/8436481/pexels-photo-8436481.jpeg?auto=compress&cs=tinysrgb&w=1200',
       specialties: ['Vinyasa', 'Flow', 'Strength'],
     },
     {
       name: 'Jessica Thompson',
       role: 'Power Yoga Expert',
       bio: 'Jessica is an athlete and power yoga champion. She pushes students to reach their full potential with compassion and humor.',
-      image: 'https://images.pexels.com/photos/3806881/pexels-photo-3806881.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/4327021/pexels-photo-4327021.jpeg?auto=compress&cs=tinysrgb&w=1200',
       specialties: ['Power', 'Strength', 'Performance'],
     },
     {
       name: 'Emma Davis',
       role: 'Yin Yoga & Meditation',
       bio: 'Emma creates a sanctuary of peace. Her mindfulness practice and deep wisdom help students find inner stillness.',
-      image: 'https://images.pexels.com/photos/3807513/pexels-photo-3807513.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/8436721/pexels-photo-8436721.jpeg?auto=compress&cs=tinysrgb&w=1200',
       specialties: ['Yin', 'Meditation', 'Mindfulness'],
     },
     {
       name: 'David Kumar',
       role: 'Kundalini & Spiritual Guide',
       bio: 'David brings spiritual depth to yoga. His kundalini practice awakens inner energy and consciousness in students.',
-      image: 'https://images.pexels.com/photos/3807515/pexels-photo-3807515.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/4327008/pexels-photo-4327008.jpeg?auto=compress&cs=tinysrgb&w=1200',
       specialties: ['Kundalini', 'Spiritual', 'Energy'],
     },
     {
       name: 'Lisa Parker',
       role: 'Prenatal Yoga Specialist',
       bio: 'Lisa is a certified prenatal instructor dedicated to supporting mothers. She creates safe, nurturing classes for expectant mothers.',
-      image: 'https://images.pexels.com/photos/3807514/pexels-photo-3807514.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/4056535/pexels-photo-4056535.jpeg?auto=compress&cs=tinysrgb&w=1200',
       specialties: ['Prenatal', 'Women\'s Health', 'Care'],
     },
   ];
@@ -95,13 +95,34 @@ export default function About() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-fadeInDown">
+          <div className="text-center animate-fadeInDown max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               About <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">ZenFlow</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               A sanctuary for transformation, healing, and self-discovery through the ancient art of yoga.
             </p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+            {[
+              'https://images.pexels.com/photos/4056724/pexels-photo-4056724.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/8436621/pexels-photo-8436621.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/4056524/pexels-photo-4056524.jpeg?auto=compress&cs=tinysrgb&w=1200',
+            ].map((image, index) => (
+              <div
+                key={image}
+                className="relative h-48 overflow-hidden rounded-2xl border border-white/60 shadow-xl motion-card"
+                style={{
+                  animation: `fadeInUp 0.8s ease-out forwards`,
+                  animationDelay: `${index * 0.12}s`,
+                  opacity: 0,
+                }}
+              >
+                <img src={image} alt="Yoga studio ambience" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -127,15 +148,13 @@ export default function About() {
               </div>
             </div>
 
-            <div
-              className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-slideInRight parallax-soft"
-              style={{
-                backgroundImage: 'url(https://images.pexels.com/photos/3808047/pexels-photo-3808047.jpeg?auto=compress&cs=tinysrgb&w=600)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-slideInRight parallax-soft motion-card">
+              <img
+                src="https://images.pexels.com/photos/3822633/pexels-photo-3822633.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="ZenFlow studio interior"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
             </div>
           </div>
         </div>
@@ -174,6 +193,97 @@ export default function About() {
                     <p className="text-gray-600 leading-relaxed">{value.description}</p>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Programs Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fadeInUp">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">What We Offer</h2>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              Inspired by the variety of a full-service yoga studio, we design classes and experiences for every stage of practice.
+            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: 'Studio Classes',
+                text: 'Daily group sessions focused on alignment, strength, and breath.',
+                image: 'https://images.pexels.com/photos/3771074/pexels-photo-3771074.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              },
+              {
+                title: 'Private Sessions',
+                text: 'One-to-one guidance customized to your goals and pace.',
+                image: 'https://images.pexels.com/photos/4056728/pexels-photo-4056728.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              },
+              {
+                title: 'Kids & Teens',
+                text: 'Joyful, grounding classes that build focus and confidence.',
+                image: 'https://images.pexels.com/photos/3822890/pexels-photo-3822890.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              },
+              {
+                title: 'Corporate Wellness',
+                text: 'Mindful movement sessions to reset teams and reduce stress.',
+                image: 'https://images.pexels.com/photos/8436834/pexels-photo-8436834.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              },
+            ].map((program, i) => (
+              <div
+                key={program.title}
+                className="motion-card overflow-hidden rounded-2xl border border-gray-200 bg-white"
+                style={{
+                  animation: `fadeInUp 0.8s ease-out forwards`,
+                  animationDelay: `${i * 0.12}s`,
+                  opacity: 0,
+                }}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img src={program.image} alt={program.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{program.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-20 bg-gradient-to-b from-emerald-50/60 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14 animate-fadeInUp">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Studio Moments</h2>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              A glimpse into the calm, movement, and community that define the ZenFlow experience.
+            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              'https://images.pexels.com/photos/4056727/pexels-photo-4056727.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/8436587/pexels-photo-8436587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/3822648/pexels-photo-3822648.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/4056532/pexels-photo-4056532.jpeg?auto=compress&cs=tinysrgb&w=1200',
+            ].map((image, i) => (
+              <div
+                key={image}
+                className="motion-card relative h-72 overflow-hidden rounded-2xl border border-gray-200 shadow-md"
+                style={{
+                  animation: `scaleIn 0.7s ease-out forwards`,
+                  animationDelay: `${i * 0.12}s`,
+                  opacity: 0,
+                }}
+              >
+                <img src={image} alt="Yoga studio gallery" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
