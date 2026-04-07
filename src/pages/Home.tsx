@@ -4,13 +4,28 @@ import { Link } from 'react-router-dom';
 import { applyPageSeo } from '../utils/seo';
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const highlights = [
+    {
+      title: 'Morning Flow Rituals',
+      subtitle: 'Wake your body with breath-led movement and gentle activation.',
+      image: 'https://images.pexels.com/photos/4056534/pexels-photo-4056534.jpeg?auto=compress&cs=tinysrgb&w=1400',
+      points: ['Small group classes', 'Breath + mobility focus', 'Perfect for beginners'],
+    },
+    {
+      title: 'Strength and Balance',
+      subtitle: 'Build endurance and confidence with dynamic yoga sequences.',
+      image: 'https://images.pexels.com/photos/8436588/pexels-photo-8436588.jpeg?auto=compress&cs=tinysrgb&w=1400',
+      points: ['Progressive levels', 'Core and posture training', 'Instructor guidance'],
+    },
+    {
+      title: 'Deep Recovery Evenings',
+      subtitle: 'Release stress through restorative yoga and mindfulness practice.',
+      image: 'https://images.pexels.com/photos/3822207/pexels-photo-3822207.jpeg?auto=compress&cs=tinysrgb&w=1400',
+      points: ['Yin and restorative sessions', 'Sleep-friendly evening slots', 'Calming studio ambiance'],
+    },
+  ];
 
   useEffect(() => {
     applyPageSeo({
@@ -21,21 +36,30 @@ export default function Home() {
     });
   }, []);
 
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % highlights.length);
+    }, 4800);
+
+    return () => window.clearInterval(timer);
+  }, [highlights.length]);
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[calc(100vh-5rem)] flex items-start justify-center overflow-hidden pt-14 pb-12">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-teal-50 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-teal-50 z-0 animate-gradientShift" />
 
         {/* Animated background elements */}
-        <div
-          className="absolute top-20 right-20 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float z-0"
-          style={{ transform: `translateY(${scrollY * 0.06}px)` }}
-        />
-        <div
-          className="absolute bottom-20 left-20 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float z-0"
-          style={{ animationDelay: '2s', transform: `translateY(${scrollY * -0.05}px)` }}
-        />
+        <div className="absolute top-20 right-20 parallax-medium">
+          <div className="w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float z-0" />
+        </div>
+        <div className="absolute bottom-20 left-20 parallax-reverse">
+          <div
+            className="w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float z-0"
+            style={{ animationDelay: '2s' }}
+          />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fadeInDown mb-8">
@@ -73,6 +97,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Signature Slider Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-fadeInUp">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Yoga Highlights</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              An auto-updating preview of the experiences our students love most.
+            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto mt-4" />
+          </div>
+
+          <div className="relative rounded-3xl overflow-hidden h-[460px] border border-gray-200 shadow-2xl">
+            {highlights.map((item, index) => (
+              <div
+                key={item.title}
+                className={`absolute inset-0 transition-opacity duration-1000 ${
+                  index === activeSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover animate-kenBurns"
+                />
+                <div className="absolute inset-0 bg-black/45" />
+
+                <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end text-white">
+                  <p className="uppercase text-xs tracking-[0.22em] text-emerald-200 mb-3">ZenFlow Signature</p>
+                  <h3 className="text-3xl md:text-5xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-white/90 text-lg md:text-xl max-w-3xl mb-6">{item.subtitle}</p>
+                  <div className="flex flex-wrap gap-3">
+                    {item.points.map((point) => (
+                      <span key={point} className="px-4 py-2 bg-white/20 border border-white/20 rounded-full text-sm font-medium backdrop-blur-sm">
+                        {point}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            <div className="absolute bottom-5 right-5 flex gap-2">
+              {highlights.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  type="button"
+                  onClick={() => setActiveSlide(index)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === activeSlide ? 'w-8 bg-white' : 'w-2.5 bg-white/45'
+                  }`}
+                  aria-label={`View ${slide.title}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,7 +174,7 @@ export default function Home() {
             ].map((benefit, i) => (
               <div
                 key={i}
-                className="group p-8 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl hover:shadow-xl transition-all transform hover:scale-105 hover:-translate-y-2"
+                className="group motion-card p-8 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl hover:shadow-xl transition-all transform hover:scale-105 hover:-translate-y-2"
                 style={{
                   animation: `fadeInUp 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.15}s`,
@@ -125,21 +207,40 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'Hatha Yoga', level: 'Beginner', duration: '60 mins', color: 'from-emerald-500 to-teal-500' },
-              { name: 'Vinyasa Flow', level: 'Intermediate', duration: '75 mins', color: 'from-teal-500 to-cyan-500' },
-              { name: 'Power Yoga', level: 'Advanced', duration: '90 mins', color: 'from-emerald-600 to-emerald-500' },
+              {
+                name: 'Hatha Yoga',
+                level: 'Beginner',
+                duration: '60 mins',
+                image: 'https://images.pexels.com/photos/317155/pexels-photo-317155.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              },
+              {
+                name: 'Vinyasa Flow',
+                level: 'Intermediate',
+                duration: '75 mins',
+                image: 'https://images.pexels.com/photos/1812964/pexels-photo-1812964.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              },
+              {
+                name: 'Power Yoga',
+                level: 'Advanced',
+                duration: '90 mins',
+                image: 'https://images.pexels.com/photos/4662438/pexels-photo-4662438.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              },
             ].map((cls, i) => (
               <div
                 key={i}
-                className="group relative overflow-hidden rounded-2xl h-80 cursor-pointer"
+                className="group motion-card relative overflow-hidden rounded-2xl h-80 cursor-pointer border border-gray-200 shadow-lg"
                 style={{
                   animation: `scaleIn 0.6s ease-out forwards`,
                   animationDelay: `${i * 0.2}s`,
                   opacity: 0,
                 }}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${cls.color}`} />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all" />
+                <img
+                  src={cls.image}
+                  alt={cls.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10 group-hover:from-black/80 transition-all" />
 
                 <div className="relative h-full flex flex-col justify-end p-8 text-white transform group-hover:translate-y-0 transition-transform">
                   <h3 className="text-3xl font-bold mb-2">{cls.name}</h3>
@@ -152,6 +253,44 @@ export default function Home() {
                     View Details
                   </button>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Studio Gallery Section */}
+      <section className="py-20 bg-gradient-to-b from-emerald-50/50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14 animate-fadeInUp">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Inside Our Yoga Space</h2>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              Calm lighting, natural textures, and intentional design that helps you settle into every session.
+            </p>
+            <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              'https://images.pexels.com/photos/1812964/pexels-photo-1812964.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/3822864/pexels-photo-3822864.jpeg?auto=compress&cs=tinysrgb&w=1200',
+              'https://images.pexels.com/photos/999309/pexels-photo-999309.jpeg?auto=compress&cs=tinysrgb&w=1200',
+            ].map((image, i) => (
+              <div
+                key={image}
+                className="relative h-72 overflow-hidden rounded-2xl border border-gray-200 shadow-md"
+                style={{
+                  animation: `fadeInUp 0.8s ease-out forwards`,
+                  animationDelay: `${i * 0.15}s`,
+                  opacity: 0,
+                }}
+              >
+                <img
+                  src={image}
+                  alt="Yoga practice"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                />
               </div>
             ))}
           </div>
@@ -191,7 +330,7 @@ export default function Home() {
             ].map((testimonial, i) => (
               <div
                 key={i}
-                className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all"
+                className="motion-card bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all"
                 style={{
                   animation: `slideInRight 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.2}s`,
@@ -299,7 +438,7 @@ export default function Home() {
             ].map((event, i) => (
               <div
                 key={event.name}
-                className="rounded-2xl border border-gray-200 bg-gradient-to-b from-gray-50 to-white p-7 hover:shadow-lg transition-all"
+                className="motion-card rounded-2xl border border-gray-200 bg-gradient-to-b from-gray-50 to-white p-7 hover:shadow-lg transition-all"
                 style={{
                   animation: `scaleIn 0.7s ease-out forwards`,
                   animationDelay: `${i * 0.15}s`,

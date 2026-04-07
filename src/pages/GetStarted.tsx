@@ -16,7 +16,16 @@ export default function GetStarted() {
   return (
     <div className="bg-white">
       <section className="relative py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50 pt-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="absolute inset-0 overflow-hidden z-0">
+          <div className="absolute top-20 left-16 parallax-soft">
+            <div className="w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
+          </div>
+          <div className="absolute bottom-10 right-16 parallax-reverse">
+            <div className="w-80 h-80 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '1.5s' }} />
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-5">
             Get <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Started</span>
           </h1>
@@ -72,7 +81,7 @@ export default function GetStarted() {
             ].map((item, i) => (
               <div
                 key={item.title}
-                className="p-8 rounded-2xl border border-gray-200 bg-gradient-to-b from-gray-50 to-white hover:shadow-xl transition-all"
+                className="motion-card p-8 rounded-2xl border border-gray-200 bg-gradient-to-b from-gray-50 to-white hover:shadow-xl transition-all"
                 style={{
                   animation: `fadeInUp 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.1}s`,
@@ -128,7 +137,7 @@ export default function GetStarted() {
             ].map((path, i) => (
               <div
                 key={path.title}
-                className="rounded-2xl border border-gray-200 bg-white p-8 hover:shadow-xl transition-all"
+                className="motion-card rounded-2xl border border-gray-200 bg-white p-8 hover:shadow-xl transition-all"
                 style={{
                   animation: `scaleIn 0.7s ease-out forwards`,
                   animationDelay: `${i * 0.12}s`,
@@ -182,7 +191,7 @@ export default function GetStarted() {
                   note: 'Repeat your favorite class and notice how your body responds.',
                 },
               ].map((plan) => (
-                <div key={plan.day} className="rounded-xl border border-gray-200 bg-white p-6">
+                <div key={plan.day} className="motion-card rounded-xl border border-gray-200 bg-white p-6">
                   <p className="text-sm font-semibold text-emerald-600 mb-2">{plan.day}</p>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.title}</h3>
                   <p className="text-gray-600">{plan.note}</p>

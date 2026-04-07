@@ -209,7 +209,7 @@ export default function Classes() {
               {filteredClasses.map((cls, i) => (
               <div
                 key={cls.id}
-                className="group overflow-hidden rounded-2xl border border-gray-200 hover:shadow-2xl transition-all transform hover:-translate-y-2"
+                className="group motion-card overflow-hidden rounded-2xl border border-gray-200 hover:shadow-2xl transition-all transform hover:-translate-y-2"
                 style={{
                   animation: `slideInRight 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.1}s`,
@@ -376,7 +376,7 @@ export default function Classes() {
             ].map((pillar, i) => (
               <div
                 key={pillar.title}
-                className="p-8 rounded-2xl border border-gray-200 bg-gradient-to-b from-gray-50 to-white hover:shadow-lg transition-all"
+                className="motion-card p-8 rounded-2xl border border-gray-200 bg-gradient-to-b from-gray-50 to-white hover:shadow-lg transition-all"
                 style={{
                   animation: `fadeInUp 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.15}s`,
@@ -433,7 +433,7 @@ export default function Classes() {
             ].map((plan, i) => (
               <div
                 key={plan.name}
-                className="p-8 rounded-2xl bg-white border border-gray-200 hover:shadow-xl transition-all"
+                className="motion-card p-8 rounded-2xl bg-white border border-gray-200 hover:shadow-xl transition-all"
                 style={{
                   animation: `scaleIn 0.7s ease-out forwards`,
                   animationDelay: `${i * 0.15}s`,

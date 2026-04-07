@@ -86,8 +86,12 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50 pt-24">
         <div className="absolute inset-0 overflow-hidden z-0">
-          <div className="absolute top-40 left-20 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
-          <div className="absolute bottom-40 right-20 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-40 left-20 parallax-medium">
+            <div className="w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
+          </div>
+          <div className="absolute bottom-40 right-20 parallax-reverse">
+            <div className="w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }} />
+          </div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,7 +128,7 @@ export default function About() {
             </div>
 
             <div
-              className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-slideInRight"
+              className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-slideInRight parallax-soft"
               style={{
                 backgroundImage: 'url(https://images.pexels.com/photos/3808047/pexels-photo-3808047.jpeg?auto=compress&cs=tinysrgb&w=600)',
                 backgroundSize: 'cover',
@@ -152,7 +156,7 @@ export default function About() {
             {values.map((value, i) => (
               <div
                 key={i}
-                className="p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-lg transition-all"
+                className="motion-card p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-lg transition-all"
                 style={{
                   animation: `scaleIn 0.6s ease-out forwards`,
                   animationDelay: `${i * 0.15}s`,
@@ -218,7 +222,7 @@ export default function About() {
             {instructors.map((instructor, i) => (
               <div
                 key={i}
-                className="group overflow-hidden rounded-2xl bg-white border border-gray-200 hover:shadow-2xl transition-all"
+                className="group motion-card overflow-hidden rounded-2xl bg-white border border-gray-200 hover:shadow-2xl transition-all"
                 style={{
                   animation: `slideInRight 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.1}s`,
@@ -300,7 +304,7 @@ export default function About() {
             ].map((feature, i) => (
               <div
                 key={i}
-                className="p-6 bg-white border border-gray-200 rounded-2xl hover:shadow-lg transition-all"
+                className="motion-card p-6 bg-white border border-gray-200 rounded-2xl hover:shadow-lg transition-all"
                 style={{
                   animation: `fadeInUp 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.1}s`,
@@ -337,7 +341,7 @@ export default function About() {
             ].map((item, i) => (
               <div
                 key={item.year}
-                className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-5 p-6 rounded-2xl border border-gray-200 bg-gradient-to-r from-white to-gray-50"
+                className="motion-card grid grid-cols-1 md:grid-cols-[120px_1fr] gap-5 p-6 rounded-2xl border border-gray-200 bg-gradient-to-r from-white to-gray-50"
                 style={{
                   animation: `fadeInUp 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.1}s`,
@@ -383,7 +387,7 @@ export default function About() {
             ].map((item, i) => (
               <div
                 key={item.title}
-                className="p-8 rounded-2xl bg-white border border-gray-200 hover:shadow-lg transition-all"
+                className="motion-card p-8 rounded-2xl bg-white border border-gray-200 hover:shadow-lg transition-all"
                 style={{
                   animation: `scaleIn 0.7s ease-out forwards`,
                   animationDelay: `${i * 0.15}s`,

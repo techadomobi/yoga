@@ -42,7 +42,9 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50 pt-24">
         <div className="absolute inset-0 overflow-hidden z-0">
-          <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
+          <div className="absolute top-40 right-20 parallax-medium">
+            <div className="w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" />
+          </div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,7 +85,7 @@ export default function Contact() {
             ].map((info, i) => (
               <div
                 key={i}
-                className="p-8 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl hover:shadow-lg transition-all text-center group"
+                className="motion-card p-8 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl hover:shadow-lg transition-all text-center group"
                 style={{
                   animation: `scaleIn 0.6s ease-out forwards`,
                   animationDelay: `${i * 0.15}s`,
@@ -289,7 +291,7 @@ export default function Contact() {
             ].map((option, i) => (
               <div
                 key={option.title}
-                className="p-8 bg-white rounded-2xl border border-gray-200 hover:shadow-lg transition-all"
+                className="motion-card p-8 bg-white rounded-2xl border border-gray-200 hover:shadow-lg transition-all"
                 style={{
                   animation: `scaleIn 0.7s ease-out forwards`,
                   animationDelay: `${i * 0.12}s`,
@@ -368,7 +370,7 @@ export default function Contact() {
             ].map((faq, i) => (
               <div
                 key={i}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all"
+                className="motion-card bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all"
                 style={{
                   animation: `fadeInUp 0.8s ease-out forwards`,
                   animationDelay: `${i * 0.1}s`,
