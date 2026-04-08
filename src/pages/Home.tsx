@@ -9,23 +9,23 @@ export default function Home() {
 
   const heroSlides = [
     {
-      title: 'Creative Learning Adventures',
-      subtitle: 'Building confidence, one smile at a time with mindful movement.',
-      image: 'https://images.pexels.com/photos/3747507/pexels-photo-3747507.jpeg?auto=compress&cs=tinysrgb&w=1800',
-      cta: 'Schedule a Tour',
+      title: 'Find Your Inner Peace',
+      subtitle: 'Mindful classes that bring balance to your day and strength to your practice.',
+      image: 'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      cta: 'Start Your Practice',
       secondary: 'Learn More',
     },
     {
-      title: 'Breathe Into New Possibilities',
-      subtitle: 'Gentle yoga sessions that support focus, calm, and joyful growth.',
-      image: 'https://images.pexels.com/photos/5386814/pexels-photo-5386814.jpeg?auto=compress&cs=tinysrgb&w=1800',
-      cta: 'Start Your Practice',
-      secondary: 'View Classes',
+      title: 'Breathe Deep, Move Better',
+      subtitle: 'Improve posture, mobility, and focus through guided movement and breathwork.',
+      image: 'https://images.pexels.com/photos/3823076/pexels-photo-3823076.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      cta: 'View Classes',
+      secondary: 'Meet Instructors',
     },
     {
-      title: 'Move, Learn, and Shine',
-      subtitle: 'A playful wellness journey designed to keep your body and mind in sync.',
-      image: 'https://images.pexels.com/photos/8613088/pexels-photo-8613088.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      title: 'Restore. Recenter. Renew.',
+      subtitle: 'End your day with restorative sessions that calm the nervous system and reduce stress.',
+      image: 'https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg?auto=compress&cs=tinysrgb&w=1800',
       cta: 'Join Today',
       secondary: 'Contact Us',
     },
@@ -97,8 +97,8 @@ export default function Home() {
             }`}
           >
             <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-500/85 via-fuchsia-400/70 to-rose-400/75" />
-            <div className="absolute inset-0 bg-gradient-to-t from-pink-600/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/75 via-emerald-900/65 to-teal-800/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/45 via-transparent to-transparent" />
           </div>
         ))}
 
@@ -120,13 +120,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               <Link
                 to="/get-started"
-                className="bg-white text-fuchsia-600 px-8 py-4 rounded-full hover:bg-pink-50 transition-all font-bold text-2xl sm:text-xl flex items-center justify-center"
+                className="bg-emerald-500 text-white px-8 py-4 rounded-full hover:bg-emerald-600 transition-all font-bold text-lg sm:text-xl flex items-center justify-center shadow-lg shadow-emerald-900/25"
               >
                 {heroSlides[activeHeroSlide].cta}
               </Link>
               <Link
                 to="/about"
-                className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all font-bold text-2xl sm:text-xl text-center"
+                className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all font-bold text-lg sm:text-xl text-center"
               >
                 {heroSlides[activeHeroSlide].secondary}
               </Link>
@@ -138,7 +138,7 @@ export default function Home() {
           type="button"
           onClick={showPreviousHeroSlide}
           aria-label="Previous hero slide"
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-fuchsia-600 shadow-lg flex items-center justify-center transition-all"
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-emerald-700 shadow-lg flex items-center justify-center transition-all"
         >
           <ChevronLeft className="w-8 h-8" />
         </button>
@@ -146,7 +146,7 @@ export default function Home() {
           type="button"
           onClick={showNextHeroSlide}
           aria-label="Next hero slide"
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-fuchsia-600 shadow-lg flex items-center justify-center transition-all"
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-emerald-700 shadow-lg flex items-center justify-center transition-all"
         >
           <ChevronRight className="w-8 h-8" />
         </button>
