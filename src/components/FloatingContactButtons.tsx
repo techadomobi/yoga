@@ -11,14 +11,9 @@ export default function FloatingContactButtons() {
         rel="noreferrer"
         aria-label="Chat on WhatsApp with 6366666760"
         title="Chat on WhatsApp with 6366666760"
-        className="group flex items-center gap-3 rounded-full bg-white/95 px-3 py-2 shadow-[0_16px_40px_rgba(15,23,42,0.18)] ring-1 ring-black/5 backdrop-blur hover:-translate-y-0.5 transition-transform"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_16px_40px_rgba(15,23,42,0.18)] ring-1 ring-white/15 hover:-translate-y-0.5 transition-transform"
       >
-        <span className="hidden sm:inline text-sm font-medium text-slate-700 whitespace-nowrap">
-          Chat on WhatsApp with 6366666760
-        </span>
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-transform group-hover:scale-105">
-          <MessageCircle className="h-7 w-7" />
-        </span>
+        <MessageCircle className="h-7 w-7" />
       </a>
 
       <a
