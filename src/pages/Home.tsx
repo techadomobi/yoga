@@ -1,10 +1,35 @@
-import { Heart, Zap, Brain, Users, ArrowRight, Star } from 'lucide-react';
+import { Heart, Zap, Brain, Users, ArrowRight, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { applyPageSeo } from '../utils/seo';
 
 export default function Home() {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+  const [activeHighlightSlide, setActiveHighlightSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      title: 'Creative Learning Adventures',
+      subtitle: 'Building confidence, one smile at a time with mindful movement.',
+      image: 'https://images.pexels.com/photos/3747507/pexels-photo-3747507.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      cta: 'Schedule a Tour',
+      secondary: 'Learn More',
+    },
+    {
+      title: 'Breathe Into New Possibilities',
+      subtitle: 'Gentle yoga sessions that support focus, calm, and joyful growth.',
+      image: 'https://images.pexels.com/photos/5386814/pexels-photo-5386814.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      cta: 'Start Your Practice',
+      secondary: 'View Classes',
+    },
+    {
+      title: 'Move, Learn, and Shine',
+      subtitle: 'A playful wellness journey designed to keep your body and mind in sync.',
+      image: 'https://images.pexels.com/photos/8613088/pexels-photo-8613088.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      cta: 'Join Today',
+      secondary: 'Contact Us',
+    },
+  ];
 
   const highlights = [
     {
@@ -38,62 +63,106 @@ export default function Home() {
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % highlights.length);
+      setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5600);
+
+    return () => window.clearInterval(timer);
+  }, [heroSlides.length]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHighlightSlide((prev) => (prev + 1) % highlights.length);
     }, 4800);
 
     return () => window.clearInterval(timer);
   }, [highlights.length]);
 
+  const showPreviousHeroSlide = () => {
+    setActiveHeroSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const showNextHeroSlide = () => {
+    setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[calc(100vh-5rem)] flex items-start justify-center overflow-hidden pt-14 pb-12">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-teal-50 z-0 animate-gradientShift" />
-
-        {/* Animated background elements */}
-        <div className="absolute top-20 right-20 parallax-medium">
-          <div className="w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float z-0" />
-        </div>
-        <div className="absolute bottom-20 left-20 parallax-reverse">
+      <section className="relative min-h-[calc(92vh-5rem)] overflow-hidden">
+        {heroSlides.map((slide, index) => (
           <div
-            className="w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float z-0"
-            style={{ animationDelay: '2s' }}
-          />
+            key={slide.title}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === activeHeroSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-500/85 via-fuchsia-400/70 to-rose-400/75" />
+            <div className="absolute inset-0 bg-gradient-to-t from-pink-600/40 via-transparent to-transparent" />
+          </div>
+        ))}
+
+        <div className="relative z-10 min-h-[calc(92vh-5rem)] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+          <div className="max-w-2xl text-white">
+            <div className="flex items-center gap-2 mb-6 animate-fadeInDown">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-7 h-7 fill-yellow-300 text-yellow-300" />
+              ))}
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.02] mb-5 animate-fadeInUp">
+              {heroSlides[activeHeroSlide].title}
+            </h1>
+            <p className="text-xl md:text-3xl text-white/95 mb-10 animate-fadeInUp" style={{ animationDelay: '0.12s' }}>
+              {heroSlides[activeHeroSlide].subtitle}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+              <Link
+                to="/get-started"
+                className="bg-white text-fuchsia-600 px-8 py-4 rounded-full hover:bg-pink-50 transition-all font-bold text-2xl sm:text-xl flex items-center justify-center"
+              >
+                {heroSlides[activeHeroSlide].cta}
+              </Link>
+              <Link
+                to="/about"
+                className="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all font-bold text-2xl sm:text-xl text-center"
+              >
+                {heroSlides[activeHeroSlide].secondary}
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-fadeInDown mb-8">
-            <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold mb-6">
-              Welcome to Your Journey
-            </span>
-          </div>
+        <button
+          type="button"
+          onClick={showPreviousHeroSlide}
+          aria-label="Previous hero slide"
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-fuchsia-600 shadow-lg flex items-center justify-center transition-all"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </button>
+        <button
+          type="button"
+          onClick={showNextHeroSlide}
+          aria-label="Next hero slide"
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-fuchsia-600 shadow-lg flex items-center justify-center transition-all"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </button>
 
-          <h1 className="animate-fadeInUp text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Find Your Inner <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Peace</span>
-          </h1>
-
-          <p className="animate-fadeInUp text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10" style={{ animationDelay: '0.2s' }}>
-            Experience transformative yoga classes designed to balance your mind, strengthen your body, and elevate your spirit.
-          </p>
-
-          <div className="animate-fadeInUp flex flex-col sm:flex-row gap-4 justify-center" style={{ animationDelay: '0.4s' }}>
-            <Link to="/get-started" className="bg-emerald-600 text-white px-8 py-4 rounded-full hover:bg-emerald-700 transition-all transform hover:scale-105 font-semibold text-lg flex items-center justify-center gap-2">
-              Start Your Practice <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link to="/about" className="border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-full hover:bg-emerald-50 transition-all font-semibold text-lg">
-              Learn More
-            </Link>
-          </div>
-        </div>
-
-        {/* Floating scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-gray-600 text-sm font-medium">Scroll to explore</span>
-            <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroSlides.map((slide, index) => (
+            <button
+              key={slide.title}
+              type="button"
+              onClick={() => setActiveHeroSlide(index)}
+              aria-label={`Show ${slide.title}`}
+              className={`h-3 rounded-full transition-all ${
+                index === activeHeroSlide ? 'w-10 bg-white' : 'w-3 bg-white/50'
+              }`}
+            />
+          ))}
         </div>
       </section>
 
@@ -113,7 +182,7 @@ export default function Home() {
               <div
                 key={item.title}
                 className={`absolute inset-0 transition-opacity duration-1000 ${
-                  index === activeSlide ? 'opacity-100' : 'opacity-0'
+                  index === activeHighlightSlide ? 'opacity-100' : 'opacity-0'
                 }`}
               >
                 <img
@@ -143,9 +212,9 @@ export default function Home() {
                 <button
                   key={slide.title}
                   type="button"
-                  onClick={() => setActiveSlide(index)}
+                  onClick={() => setActiveHighlightSlide(index)}
                   className={`h-2.5 rounded-full transition-all ${
-                    index === activeSlide ? 'w-8 bg-white' : 'w-2.5 bg-white/45'
+                    index === activeHighlightSlide ? 'w-8 bg-white' : 'w-2.5 bg-white/45'
                   }`}
                   aria-label={`View ${slide.title}`}
                 />
