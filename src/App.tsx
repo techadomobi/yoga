@@ -7,6 +7,7 @@ import Classes from './pages/Classes';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import GetStarted from './pages/GetStarted';
+import FloatingContactButtons from './components/FloatingContactButtons';
 
 function AppContent() {
   const location = useLocation();
@@ -55,6 +56,7 @@ function AppContent() {
           <Route path="/get-started" element={<GetStarted />} />
         </Routes>
       </main>
+      <FloatingContactButtons />
       <Footer />
     </div>
   );

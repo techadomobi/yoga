@@ -1,5 +1,6 @@
-import { Leaf, Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 
 export default function Footer() {
   return (
@@ -7,10 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Leaf className="w-6 h-6 text-emerald-600" />
-              <span className="text-lg font-bold text-emerald-600">ZenFlow</span>
-            </div>
+            <BrandLogo className="mb-4" />
             <p className="text-gray-600 text-sm">
               Transform your mind, body, and spirit through the power of yoga.
             </p>

@@ -4,7 +4,7 @@ type SeoOptions = {
   path: string;
 };
 
-const SITE_NAME = 'ZenFlow Yoga Studio';
+const SITE_NAME = 'Mat and Mantra';
 
 function upsertMetaByName(name: string, content: string) {
   let tag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;

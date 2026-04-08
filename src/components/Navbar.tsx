@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Leaf } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,10 +32,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex justify-between items-center transition-all duration-500 ${isScrolled ? 'h-16' : 'h-20'}`}>
           <Link to="/" className="flex items-center gap-2 group">
-            <Leaf className="w-8 h-8 text-emerald-600 group-hover:text-emerald-700 transition-all duration-300 group-hover:rotate-6" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              ZenFlow
-            </span>
+            <BrandLogo className="transition-transform duration-300 group-hover:-translate-y-0.5" />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
