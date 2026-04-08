@@ -1,4 +1,4 @@
-import { Heart, Zap, Brain, Users, ArrowRight, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+﻿import { Heart, Zap, Brain, Users, ArrowRight, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { applyPageSeo } from '../utils/seo';
@@ -56,7 +56,7 @@ export default function Home() {
     applyPageSeo({
       title: 'Home',
       description:
-        'Discover mindful yoga classes, supportive instructors, and a welcoming wellness community at ZenFlow.',
+        'Discover mindful yoga classes, supportive instructors, and a welcoming wellness community at Mat and Mantra.',
       path: '/',
     });
   }, []);
@@ -193,7 +193,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-black/45" />
 
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end text-white">
-                  <p className="uppercase text-xs tracking-[0.22em] text-emerald-200 mb-3">ZenFlow Signature</p>
+                  <p className="uppercase text-xs tracking-[0.22em] text-emerald-200 mb-3">Mat and Mantra Signature</p>
                   <h3 className="text-3xl md:text-5xl font-bold mb-3">{item.title}</h3>
                   <p className="text-white/90 text-lg md:text-xl max-w-3xl mb-6">{item.subtitle}</p>
                   <div className="flex flex-wrap gap-3">
@@ -229,7 +229,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Why Choose ZenFlow?
+              Why Choose Mat and Mantra?
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto" />
           </div>
@@ -381,7 +381,7 @@ export default function Home() {
               {
                 name: 'Sarah Johnson',
                 role: 'Yoga Enthusiast',
-                content: 'ZenFlow has completely transformed my life. The instructors are amazing and the community is so welcoming!',
+                content: 'Mat and Mantra has completely transformed my life. The instructors are amazing and the community is so welcoming!',
                 rating: 5,
               },
               {
@@ -530,7 +530,7 @@ export default function Home() {
             Ready to Transform Your Life?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-            Join hundreds of students who have discovered their inner peace with ZenFlow.
+            Join hundreds of students who have discovered their inner peace with Mat and Mantra.
           </p>
           <Link to="/get-started" className="inline-block bg-white text-emerald-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
             Get Started Today
@@ -540,3 +540,4 @@ export default function Home() {
     </div>
   );
 }
+

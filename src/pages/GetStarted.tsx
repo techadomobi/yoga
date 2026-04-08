@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Calendar, Users, Sparkles, Dumbbell, HeartHandshake, Timer } from 'lucide-react';
 import { applyPageSeo } from '../utils/seo';
@@ -8,7 +8,7 @@ export default function GetStarted() {
     applyPageSeo({
       title: 'Get Started',
       description:
-        'Start your ZenFlow journey with simple steps, beginner recommendations, and class booking guidance.',
+        'Start your Mat and Mantra journey with simple steps, beginner recommendations, and class booking guidance.',
       path: '/get-started',
     });
   }, []);
@@ -223,3 +223,4 @@ export default function GetStarted() {
     </div>
   );
 }
+

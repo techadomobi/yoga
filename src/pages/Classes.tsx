@@ -1,4 +1,4 @@
-import { Clock, Users, Zap, BarChart3, Calendar, MapPin, Search, X } from 'lucide-react';
+﻿import { Clock, Users, Zap, BarChart3, Calendar, MapPin, Search, X } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { applyPageSeo } from '../utils/seo';
 
@@ -10,7 +10,7 @@ export default function Classes() {
     applyPageSeo({
       title: 'Classes',
       description:
-        'Browse beginner to advanced yoga classes, weekly schedules, and flexible memberships at ZenFlow.',
+        'Browse beginner to advanced yoga classes, weekly schedules, and flexible memberships at Mat and Mantra.',
       path: '/classes',
     });
   }, []);
@@ -497,3 +497,4 @@ export default function Classes() {
     </div>
   );
 }
+

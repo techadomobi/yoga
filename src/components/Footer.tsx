@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+﻿import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 
@@ -49,7 +49,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-gray-600">
                 <Mail className="w-4 h-4 text-emerald-600" />
-                <span>hello@zenflow.com</span>
+                <span>hello@Mat and Mantra.com</span>
               </li>
               <li className="flex items-start gap-2 text-gray-600">
                 <MapPin className="w-4 h-4 text-emerald-600 mt-0.5" />
@@ -77,7 +77,7 @@ export default function Footer() {
         <div className="border-t border-gray-300 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 text-sm">
-              &copy; 2024 ZenFlow Yoga Studio. All rights reserved.
+              &copy; 2024 Mat and Mantra Yoga Studio. All rights reserved.
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
@@ -93,3 +93,4 @@ export default function Footer() {
     </footer>
   );
 }
+

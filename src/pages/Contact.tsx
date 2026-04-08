@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
 import { applyPageSeo } from '../utils/seo';
@@ -8,7 +8,7 @@ export default function Contact() {
     applyPageSeo({
       title: 'Contact',
       description:
-        'Contact ZenFlow Yoga Studio for class inquiries, memberships, private sessions, and first-visit guidance.',
+        'Contact Mat and Mantra Yoga Studio for class inquiries, memberships, private sessions, and first-visit guidance.',
       path: '/contact',
     });
   }, []);
@@ -73,7 +73,7 @@ export default function Contact() {
               {
                 icon: Mail,
                 title: 'Email Us',
-                content: 'hello@zenflow.com',
+                content: 'hello@Mat and Mantra.com',
                 subtext: 'We reply within 24 hours',
               },
               {
@@ -392,7 +392,7 @@ export default function Contact() {
             Ready to Begin Your Journey?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-            Reach out to us today and discover how ZenFlow can transform your life.
+            Reach out to us today and discover how Mat and Mantra can transform your life.
           </p>
           <Link to="/get-started" className="inline-block bg-white text-emerald-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
             Schedule a Visit
@@ -402,3 +402,4 @@ export default function Contact() {
     </div>
   );
 }
+

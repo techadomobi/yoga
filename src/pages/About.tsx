@@ -1,4 +1,4 @@
-import { Award, Heart, Leaf, Sparkles, BookOpen, Globe } from 'lucide-react';
+﻿import { Award, Heart, Leaf, Sparkles, BookOpen, Globe } from 'lucide-react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { applyPageSeo } from '../utils/seo';
@@ -8,7 +8,7 @@ export default function About() {
     applyPageSeo({
       title: 'About',
       description:
-        'Meet the ZenFlow team, explore our teaching philosophy, and learn the story behind our yoga community.',
+        'Meet the Mat and Mantra team, explore our teaching philosophy, and learn the story behind our yoga community.',
       path: '/about',
     });
   }, []);
@@ -97,7 +97,7 @@ export default function About() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fadeInDown max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              About <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">ZenFlow</span>
+              About <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Mat and Mantra</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               A sanctuary for transformation, healing, and self-discovery through the ancient art of yoga.
@@ -137,13 +137,13 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Founded in 2018, ZenFlow began with a simple vision: to create a welcoming space where anyone can discover the transformative power of yoga. Our founder, Sarah Williams, was inspired by her own healing journey and wanted to share that gift with others.
+                  Founded in 2018, Mat and Mantra began with a simple vision: to create a welcoming space where anyone can discover the transformative power of yoga. Our founder, Sarah Williams, was inspired by her own healing journey and wanted to share that gift with others.
                 </p>
                 <p>
-                  What started as a small studio with just two instructors has grown into a thriving community of over 500 regular practitioners. But our heart remains the same—creating a sanctuary where people can connect with themselves and each other.
+                  What started as a small studio with just two instructors has grown into a thriving community of over 500 regular practitioners. But our heart remains the sameâ€”creating a sanctuary where people can connect with themselves and each other.
                 </p>
                 <p>
-                  Today, ZenFlow is more than just a yoga studio. We are a movement dedicated to bringing peace, wellness, and mindfulness into the lives of our students and our community.
+                  Today, Mat and Mantra is more than just a yoga studio. We are a movement dedicated to bringing peace, wellness, and mindfulness into the lives of our students and our community.
                 </p>
               </div>
             </div>
@@ -151,7 +151,7 @@ export default function About() {
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-slideInRight parallax-soft motion-card">
               <img
                 src="https://images.pexels.com/photos/3822633/pexels-photo-3822633.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="ZenFlow studio interior"
+                alt="Mat and Mantra studio interior"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
@@ -262,7 +262,7 @@ export default function About() {
           <div className="text-center mb-14 animate-fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Studio Moments</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              A glimpse into the calm, movement, and community that define the ZenFlow experience.
+              A glimpse into the calm, movement, and community that define the Mat and Mantra experience.
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto mt-4" />
           </div>
@@ -436,14 +436,14 @@ export default function About() {
           <div className="text-center mb-14 animate-fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Journey</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              From a small local studio to a growing wellness community, here are the moments that shaped ZenFlow.
+              From a small local studio to a growing wellness community, here are the moments that shaped Mat and Mantra.
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto mt-4" />
           </div>
 
           <div className="space-y-6">
             {[
-              { year: '2018', title: 'ZenFlow Founded', detail: 'We opened our first 20-mat studio with two instructors and a weekly class schedule.' },
+              { year: '2018', title: 'Mat and Mantra Founded', detail: 'We opened our first 20-mat studio with two instructors and a weekly class schedule.' },
               { year: '2020', title: 'Digital Expansion', detail: 'Introduced live-stream and on-demand sessions to support students at home.' },
               { year: '2022', title: 'Teacher Development', detail: 'Launched internal mentorship programs and advanced instructor training pathways.' },
               { year: '2024', title: 'Community Programs', detail: 'Started donation-based classes, teen wellness sessions, and neighborhood events.' },
@@ -520,7 +520,7 @@ export default function About() {
             Join Our Community Today
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-            Experience the ZenFlow difference and discover your path to wellness and inner peace.
+            Experience the Mat and Mantra difference and discover your path to wellness and inner peace.
           </p>
           <Link to="/get-started" className="inline-block bg-white text-emerald-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
             Get Started Now
@@ -530,3 +530,4 @@ export default function About() {
     </div>
   );
 }
+
